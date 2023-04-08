@@ -12,22 +12,10 @@ export const Home = () => {
           alt="dt"
         ></img>
         <p>Welcome to Dentist House</p>
-        <p>Find the best dentists at your location</p>
-        <form>
-          <label>
-            user:
-            <input />
-          </label>
-          <br />
-          <label>
-            email:
-            <input />
-          </label>
-        </form>
         <label htmlFor="">
           Start looking here
           <Link to="/dentists">
-            <button type="submit">Start</button>
+            <button>Start</button>
           </Link>
         </label>
       </div>

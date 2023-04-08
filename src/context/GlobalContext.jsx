@@ -4,6 +4,7 @@ export const GlobalContext = createContext();
 
 const initialState = {
   users: [],
+  user: {},
   isDark: false,
   favs: [],
 };
@@ -11,24 +12,34 @@ const initialState = {
 const globalReducer = (state, action) => {
   switch (action.type) {
     case "ADD_FAV":
-      let exist = state.users.some((element) => element.id === action.payload.id)
-      if(exist){
-        let arr = state.users.map((element)=>{
-          if(element.id === action.payload.id){
-            return {...element, quanty:element.quanty + action.payload.quanty}
-          }else{
+      let exist = state.users.some(
+        (element) => element.id === action.payload.id
+      );
+      if (exist) {
+        let arr = state.users.map((element) => {
+          if (element.id === action.payload.id) {
+            return {
+              ...element,
+              quanty: element.quanty + action.payload.quanty,
+            };
+          } else {
             return element;
           }
-        })
-        return {...state,users:arr}
-
-      }else{
+        });
+        return { ...state, users: arr };
+      } else {
         return { ...state, users: [...state.users, action.payload] };
       }
-      
+
     case "GET_DENTIST":
       return { ...state, users: action.payload };
- 
+
+    case "GET_DENTIST_ID":
+      return { ...state, user: action.payload };
+
+    case "SWITCH_MODE":
+      return { ...state, isDark: !state.isDark };
+
     default:
       state;
   }
