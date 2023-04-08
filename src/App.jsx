@@ -6,8 +6,8 @@ import { HomeContainer } from "./components/pages/Home/HomeContainer";
 import { DentistContainer } from "./components/pages/Professionals/DentistContainer";
 import { DentistDetailContainer } from "./components/pages/Professionals/DentistDetailContainer";
 import { ContactContainer } from "./components/pages/Contact/ContactContainer";
-import { GlobalContextProvider } from "./context/GlobalContext";
 import { FavsContainer } from "./components/pages/Favs/FavsContainer";
+import { GlobalContextProvider } from "./context/GlobalContext";
 
 function App() {
   return (

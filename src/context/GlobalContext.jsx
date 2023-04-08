@@ -9,15 +9,13 @@ const initialState = {
   favs: [],
 };
 
+const removeFiltered = (id, state) => {
+  let filtered = state.favs.filter((fav) => fav.id !== id);
+  return filtered;
+};
+
 const globalReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_FAV":
-      let exist = state.users.some(
-        (element) => element.id === action.payload.id
-      );
-      if (exist) {
-        return { ...state, favs: [...state.favs, action.payload] };
-      }
     case "GET_DENTIST":
       return { ...state, users: action.payload };
 
@@ -26,6 +24,27 @@ const globalReducer = (state, action) => {
 
     case "SWITCH_MODE":
       return { ...state, isDark: !state.isDark };
+
+    case "ADD_FAV":
+      let exist = state.users.some(
+        (element) => element.id === action.payload.id
+      );
+      let repetaed = state.favs.some(
+        (element) => element.id === action.payload.id
+      );
+      if (exist) {
+        if (repetaed) {
+          return { ...state, favs: state.favs };
+        } else {
+          return { ...state, favs: [...state.favs, action.payload] };
+        }
+      }
+
+    case "REMOVE_FAV":
+      return {
+        ...state,
+        favs: removeFiltered(action.payload.id, state),
+      };
 
     default:
       state;

@@ -19,3 +19,8 @@ div.dentist-favs {
   border-style: outset;
   border-color: silver;
 }
+
+button.fav {
+  text-decoration: none;
+  border-style: none;
+}

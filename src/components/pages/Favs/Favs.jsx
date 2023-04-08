@@ -18,6 +18,12 @@ export const Favs = ({ favs, dispatch }) => {
             <Link to={`/dentist/${fav.id}`}>
               <button>Details</button>
             </Link>
+            <button
+            
+              onClick={() => dispatch({ type: "REMOVE_FAV", payload: fav })}
+            >
+              Remove
+            </button>
           </div>
         );
       })}

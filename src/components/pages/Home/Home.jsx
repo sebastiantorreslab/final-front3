@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 export const Home = () => {
   return (
@@ -13,7 +14,6 @@ export const Home = () => {
         ></img>
         <p>Welcome to Dentist House</p>
         <label htmlFor="">
-          Start looking here
           <Link to="/dentists">
             <button>Start</button>
           </Link>

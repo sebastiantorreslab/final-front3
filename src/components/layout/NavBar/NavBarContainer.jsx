@@ -4,7 +4,7 @@ import { GlobalContext } from "../../../context/GlobalContext";
 
 export const NavBarContainer = () => {
 
-  const { state, dispatch } = useContext(GlobalContext);
+  const { dispatch } = useContext(GlobalContext);
 
   return <NavBar dispatch={dispatch}/>;
 };

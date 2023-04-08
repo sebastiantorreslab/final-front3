@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Dentist.css";
 
-export const Dentist = ({ users, dispatch }) => {
+export const Dentist = ({ state, dispatch }) => {
   return (
     <div className="container">
-      {users.map((dentist) => {
+      {state.users.map((dentist) => {
         return (
           <div className="dentist-card" key={dentist.id}>
             <br />
@@ -18,7 +18,18 @@ export const Dentist = ({ users, dispatch }) => {
             <Link to={`/dentist/${dentist.id}`}>
               <button>Details</button>
             </Link>
-              <button onClick={()=>dispatch({type:"ADD_FAV",payload:dentist})}>Favorite</button>
+            <button
+              style={{
+                backgroundColor: state.favs.some(
+                  (element) => element.id === dentist.id
+                )
+                  ? "#00b57f"
+                  : "", 
+              }}
+              onClick={() => dispatch({ type: "ADD_FAV", payload: dentist })}
+            >
+              Favorite
+            </button>
           </div>
         );
       })}

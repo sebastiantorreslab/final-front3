@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../context/GlobalContext";
 
 export const DentistDetail = ({ dentist }) => {
-  const { dispatch } = useContext(GlobalContext);
   return (
     <div>
       <div className="dentist-detail">
@@ -20,10 +19,6 @@ export const DentistDetail = ({ dentist }) => {
         <Link to="/dentists">
           <button>Back</button>
         </Link>
-
-        <button onClick={() => dispatch({ type: "ADD_FAV", payload: dentist })}>
-          Favorite
-        </button>
       </div>
     </div>
   );

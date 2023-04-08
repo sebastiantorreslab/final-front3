@@ -14,5 +14,5 @@ export const DentistContainer = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return <Dentist users={state.users} dispatch={dispatch} />;
+  return <Dentist state={state} dispatch={dispatch} />;
 };
