@@ -6,7 +6,7 @@ const initialState = {
   users: [],
   user: {},
   isDark: false,
-  favs: [],
+  favs: JSON.parse(localStorage.getItem("favs")) || "",
 };
 
 const removeFiltered = (id, state) => {
@@ -34,13 +34,24 @@ const globalReducer = (state, action) => {
       );
       if (exist) {
         if (repetaed) {
-          return { ...state, favs: state.favs };
+          return state;
         } else {
+          localStorage.setItem(
+            "favs",
+            JSON.stringify([...state.favs, action.payload])
+          );
           return { ...state, favs: [...state.favs, action.payload] };
         }
       }
 
     case "REMOVE_FAV":
+      localStorage.setItem(
+        "favs",
+        JSON.stringify([
+          ...state.favs,
+          removeFiltered(action.payload.id, state),
+        ])
+      );
       return {
         ...state,
         favs: removeFiltered(action.payload.id, state),

@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { GlobalContext } from "../../../context/GlobalContext";
 
 export const DentistDetail = ({ dentist }) => {
   return (

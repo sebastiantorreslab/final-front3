@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./Dentist.css";
 
 export const Dentist = ({ state, dispatch }) => {
+
+
   return (
     <div className="container">
       {state.users.map((dentist) => {
@@ -24,12 +26,13 @@ export const Dentist = ({ state, dispatch }) => {
                   (element) => element.id === dentist.id
                 )
                   ? "#00b57f"
-                  : "", 
+                  : "",
               }}
               onClick={() => dispatch({ type: "ADD_FAV", payload: dentist })}
             >
               Favorite
             </button>
+          
           </div>
         );
       })}

@@ -6,5 +6,5 @@ export const NavBarContainer = () => {
 
   const { dispatch } = useContext(GlobalContext);
 
-  return <NavBar dispatch={dispatch}/>;
+  return <div><NavBar dispatch={dispatch}/></div>;
 };
