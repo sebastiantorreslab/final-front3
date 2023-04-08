@@ -1,10 +1,6 @@
-import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { GlobalContext } from "../../../context/GlobalContext";
 
-export const NavBar = () => {
-  const { state, dispatch } = useContext(GlobalContext);
-
+export const NavBar = ({ dispatch }) => {
   return (
     <div>
       <NavLink to="/">
@@ -19,7 +15,7 @@ export const NavBar = () => {
       <NavLink to="/favs">
         <button>My favorites</button>
       </NavLink>
-      <button onClick={{type:"SWITCH_MODE"}}>Mode</button>
+      <button onClick={() => dispatch({ type: "SWITCH_MODE" })}>Mode</button>
       <Outlet />
     </div>
   );

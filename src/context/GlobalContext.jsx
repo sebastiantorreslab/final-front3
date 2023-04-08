@@ -16,21 +16,8 @@ const globalReducer = (state, action) => {
         (element) => element.id === action.payload.id
       );
       if (exist) {
-        let arr = state.users.map((element) => {
-          if (element.id === action.payload.id) {
-            return {
-              ...element,
-              quanty: element.quanty + action.payload.quanty,
-            };
-          } else {
-            return element;
-          }
-        });
-        return { ...state, users: arr };
-      } else {
-        return { ...state, users: [...state.users, action.payload] };
+        return { ...state, favs: [...state.favs, action.payload] };
       }
-
     case "GET_DENTIST":
       return { ...state, users: action.payload };
 

@@ -9,8 +9,6 @@ import { ContactContainer } from "./components/pages/Contact/ContactContainer";
 import { GlobalContextProvider } from "./context/GlobalContext";
 import { FavsContainer } from "./components/pages/Favs/FavsContainer";
 
-
-
 function App() {
   return (
     <div className="App">
@@ -21,12 +19,15 @@ function App() {
               <Route element={<FooterContainer />}>
                 <Route path="/" element={<HomeContainer />} />
                 <Route path="/dentists" element={<DentistContainer />} />
-                <Route path="/dentist/:id" element={<DentistDetailContainer />} />
+                <Route
+                  path="/dentist/:id"
+                  element={<DentistDetailContainer />}
+                />
                 <Route path="/favs" element={<FavsContainer />} />
                 <Route path="/contact" element={<ContactContainer />} />
               </Route>
             </Route>
-            <Route path="*" element={<h1>404-nhot found</h1>} />
+            <Route path="*" element={<h1>404-not found</h1>} />
           </Routes>
         </GlobalContextProvider>
       </BrowserRouter>
