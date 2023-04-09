@@ -17,7 +17,7 @@ export const NavBar = ({ dispatch }) => {
         <button>My favorites</button>
       </NavLink>
       <NavLink to="/contact">
-        <button>Contact us</button>
+        <button>Contact</button>
       </NavLink>
       <button
         style={{ color: state.isDark ? "black" : "#90EE90" }}
