@@ -7,7 +7,6 @@ export const DentistContainer = () => {
   const { state, dispatch } = useContext(GlobalContext);
 
   useEffect(() => {
-    console.log("ejecución dentistContainer");
     const professionals = getDentist();
     professionals
       .then((res) => dispatch({ type: "GET_DENTIST", payload: res.data }))
